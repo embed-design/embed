@@ -1,8 +1,10 @@
 @tailwind base;
 @tailwind components;
 
-body {
-  background-image: ;
+.overlay {
+  background-image: url("/assets/Pattern.svg");
+  background-position: 0% 0%;
+  background-size: 100%;
 }
 
 @font-face {
