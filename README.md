@@ -1,2 +1,2 @@
 # embed
-The main website for the Embed. 
+Repo for embeddesign.in
