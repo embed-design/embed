@@ -1,10 +1,27 @@
 @tailwind base;
 @tailwind components;
 
+body {
+  @apply leading-relaxed;
+  @apply tracking-wider;
+}
+
 .overlay {
   background-image: url("/assets/Pattern.svg");
   background-position: 0% 0%;
   background-size: 100%;
+}
+
+.fontface-regular {
+  font-family: "Gordita Regular", sans-serif;
+}
+
+.fontface-medium {
+  font-family: "Gordita Medium", sans-serif;
+}
+
+.fontface-light {
+  font-family: "Gordita Light", sans-serif;
 }
 
 @font-face {

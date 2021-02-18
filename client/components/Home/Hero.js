@@ -7,14 +7,14 @@ const Hero = () => {
             <Navbar />
             <Container>
                 <div id="content" className=" pt-48 pb-24">
-                    <h1 className=" text-8xl text-white" style={{fontFamily: "Gordita Medium, sans-serif"}}>
+                    <h1 className=" text-8xl text-white fontface-medium" >
                         Why Embed?
                     </h1>
-                    <h3 className=" text-5xl text-white mt-16 leading-relaxed  w-10/12" style={{fontFamily: "Gordita Regular, sans-serif"}}>
+                    <h3 className=" text-5xl text-white mt-16 leading-relaxed  w-11/12 fontface-regular" >
                     We understand your business goals and align strategies that enrich your customer experience through UX and UI Design.
                     </h3>
                 </div>
-                <div>
+                <div className="pb-24">
                     <img src="/assets/home_asset1.png" alt="Why Embed?" />
                 </div>
             </Container>
