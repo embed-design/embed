@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Hero from "../components/Home/Hero";
 import Services from '../components/Home/Services'
+import Contact from '../components/Home/CTAForm'
 
 export default function EmbedApp() {
   return (
@@ -16,6 +17,7 @@ export default function EmbedApp() {
         </Head>
         <Hero/>
         <Services/>
+        <Contact/>
     </>
   )
 }

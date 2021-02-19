@@ -6,6 +6,39 @@ body {
   @apply tracking-wider;
 }
 
+.embed__input {
+  @apply bg-white;
+  @apply text-xl;
+  @apply text-black;
+  @apply border-none;
+  @apply px-5 py-8;
+  @apply w-full;
+  @apply my-4 mx-2;
+  @apply outline-none;
+  @apply focus:outline-none;
+}
+
+.embed__textarea {
+  @apply bg-white;
+  @apply text-xl;
+  @apply text-black;
+  @apply border-none;
+  @apply px-5 py-8;
+  @apply w-full;
+  @apply my-4 mx-2;
+  @apply outline-none;
+  @apply focus:outline-none;
+  @apply resize-y;
+}
+
+.embed__cta_button {
+  @apply bg-white;
+  @apply border-chocolate-600;
+  @apply border-4;
+  @apply px-16 py-6;
+  @apply text-2xl;
+}
+
 .overlay {
   background-image: url("/assets/Pattern.svg");
   background-position: 0% 0%;
