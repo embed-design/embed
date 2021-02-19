@@ -4,6 +4,7 @@
 body {
   @apply leading-relaxed;
   @apply tracking-wider;
+  scroll-behavior: smooth;
 }
 
 .embed__input {
@@ -55,6 +56,10 @@ body {
 
 .fontface-light {
   font-family: "Gordita Light", sans-serif;
+}
+
+.fontface-bold {
+  font-family: "Gordita Bold", sans-serif;
 }
 
 @font-face {
