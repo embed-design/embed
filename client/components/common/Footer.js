@@ -10,7 +10,7 @@ const Footer = () => {
                     We <span className="text-chocolate-600">Embed</span> customer experiences for your brand.
                 </p>
             </div>
-            <div className="w-5/12 py-16 flex flex-col justify-around pl-28" style={{"background-color": "rgba(255, 255, 255, 0.1)"}}>
+            <div className="w-5/12 py-16 flex flex-col justify-around pl-28" style={{"backgroundColor": "rgba(255, 255, 255, 0.1)"}}>
                 <div className="flex flex-col justify-between space-y-4">
                     <a href="#" className="fontface-bold text-5xl text-white opacity-30">Work</a>
                     <a href="#" className="fontface-bold text-5xl text-white opacity-30">Story.</a>
@@ -27,9 +27,9 @@ const Footer = () => {
                     </div>
                     <div>
                         <p className="text-chocolate-600 text-2xl fontface-medium mt-8 ">Follow us</p>
-                        <div className="flex space-x-6 mt-6 ml-4">
-                            <a href="#"><InstagramIcon className="w-16" /></a>
-                            <a href="#"><LinkedInIcon className="w-16" /></a>
+                        <div className="flex space-x-6 mt-8 ml-4">
+                            <a href="#"><InstagramIcon className="w-12" /></a>
+                            <a href="#"><LinkedInIcon className="w-12" /></a>
                         </div>
                     </div>
                 </div>
