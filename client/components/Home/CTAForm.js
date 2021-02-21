@@ -48,6 +48,12 @@ const CTAForm = () => {
                     "pageName": "Welcome to Embed Design"
                 }
             })    
+            setCompany("");
+            setEmail("");
+            setMessage("");
+            setName("");
+            setPhone("");
+            setServices([]);
         } else {
             alert("Form incomplete");
         }

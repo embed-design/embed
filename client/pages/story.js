@@ -5,7 +5,7 @@ import Footer from '../components/common/Footer';
 const Story = () => {
     return(
         <>
-            <img src="/assets/Pattern.svg" alt="pattern" />
+            <img src="/assets/Pattern.svg" alt="pattern" className=" absolute top-0 right-0"/>
         </>
     )
 }
