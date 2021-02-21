@@ -2,36 +2,105 @@
 @tailwind components;
 
 body {
-  @apply leading-relaxed;
-  @apply tracking-wider;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  @apply w-screen;
+  overflow-x: hidden;
 }
 
-.embed__input {
-  @apply bg-white;
-  @apply text-xl;
-  @apply text-black;
-  @apply border-none;
-  @apply px-5 py-8;
+@responsive {
+  .embed__input_lg {
+    @apply bg-white;
+    @apply text-xl;
+    @apply text-black;
+    @apply placeholder-black;
+    @apply border-none;
+    @apply px-5 py-8;
+    @apply w-full;
+    @apply my-4;
+    @apply outline-none;
+    @apply focus:outline-none;
+  }
+
+  .embed__input_2xl {
+    @apply bg-white;
+    @apply text-3xl;
+    @apply text-black;
+    @apply placeholder-black;
+    @apply border-none;
+    @apply px-8 py-12;
+    @apply w-full;
+    @apply my-4;
+    @apply outline-none;
+    @apply focus:outline-none;
+  }
+
+  .embed__textarea_lg {
+    @apply bg-white;
+    @apply text-xl;
+    @apply text-black;
+    @apply placeholder-black;
+    @apply border-none;
+    @apply px-5 py-8;
+    @apply w-full;
+    @apply my-4;
+    @apply outline-none;
+    @apply focus:outline-none;
+    @apply resize-y;
+  }
+
+  .embed__textarea_2xl {
+    @apply bg-white;
+    @apply text-3xl;
+    @apply text-black;
+    @apply placeholder-black;
+    @apply border-none;
+    @apply px-8 py-12;
+    @apply w-full;
+    @apply my-4;
+    @apply outline-none;
+    @apply focus:outline-none;
+    @apply resize-y;
+  }
+}
+
+.embed__input_mob {
+  @apply bg-transparent;
+  @apply text-base;
+  @apply text-white;
+  @apply placeholder-white;
+  @apply border-b-2;
+  @apply px-2 py-2;
   @apply w-full;
-  @apply my-4 mx-2;
+  @apply my-4;
   @apply outline-none;
   @apply focus:outline-none;
 }
 
-.embed__textarea {
-  @apply bg-white;
-  @apply text-xl;
-  @apply text-black;
-  @apply border-none;
-  @apply px-5 py-8;
+.embed__textarea_mob {
+  @apply bg-transparent;
+  @apply text-base;
+  @apply text-white;
+  @apply placeholder-white;
+  @apply border-b-2;
+  @apply px-2 py-2;
   @apply w-full;
-  @apply my-4 mx-2;
+  @apply my-4;
   @apply outline-none;
   @apply focus:outline-none;
   @apply resize-y;
 }
 
+@responsive {
+  .embed__cta_button_2xl {
+    @apply bg-white;
+    @apply border-chocolate-600;
+    @apply border-4;
+    @apply px-24 py-10;
+    @apply text-4xl;
+  }
+}
 .embed__cta_button {
   @apply bg-white;
   @apply border-chocolate-600;
@@ -39,11 +108,151 @@ body {
   @apply px-16 py-6;
   @apply text-2xl;
 }
+.container {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 35px;
+  padding-top: 2px;
+  /* margin-bottom: 12px; */
+  width: max-content;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 8px;
+  height: 15px;
+  border: solid #fa620e;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.container_2xl {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 60px;
+  padding-top: 6px;
+  /* margin-bottom: 12px; */
+  cursor: pointer;
+  width: max-content;
+  font-size: 32px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkmark_2xl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: 4px solid white;
+}
+
+.container_2xl input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.container_2xl:hover input ~ .checkmark_2xl {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* When the checkbox is checked, add a blue background */
+.container_2xl input:checked ~ .checkmark_2xl {
+  background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark_2xl:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container_2xl input:checked ~ .checkmark_2xl:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container_2xl .checkmark_2xl:after {
+  left: 13px;
+  top: 4px;
+  width: 16px;
+  height: 28px;
+  border: solid #fa620e;
+  border-width: 0 6px 6px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Hide the browser's default checkbox */
+
+/* Create a custom checkbox */
 
 .overlay {
   background-image: url("/assets/Pattern.svg");
-  background-position: 0% 0%;
-  background-size: 100%;
+  /* background-position: 0% 0%;
+  background-size: 100%; */
 }
 
 .fontface-regular {
