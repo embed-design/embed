@@ -4,18 +4,18 @@ import LinkedInIcon from '../../assets/Icons/linkedin.svg';
 
 const Footer = () => {
     return (
-        <div className="w-full flex bg-black mt-20 md:mt-44 2xl:mt-52">
+        <div className="w-full flex bg-black mt-20 md:mt-44">
             <div className="w-7/12">
-                <p className="text-white md:text-base lg:text-xl xl:text-2xl 2xl:text-4xl fontface-bold md:text-center py-10 md:my-48 lg:my-80 2xl:my-96">
+                <p className="text-white md:text-base lg:text-xl xl:text-2xl fontface-bold md:text-center py-10 md:my-48 lg:my-80">
                     We <span className="text-chocolate-600">Embed</span> customer experiences for your brand.
                 </p>
             </div>
-            <div className="w-5/12 py-16 flex flex-col justify-around md:pl-8 lg:pl-12 xl:pl-20 2xl:pl-28" style={{"backgroundColor": "rgba(255, 255, 255, 0.1)"}}>
-                <div className="flex flex-col justify-between md:space-y-1 lg:space-y-2 xl:space-y-3 2xl:space-y-4">
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl 2xl:text-5xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Work</a>
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl 2xl:text-5xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Story.</a>
-                    <a className="fontface-bold md:text-2xl xl:text-4xl 2xl:text-5xl text-white opacity-30 ">EmbedCast <span className="md:text-sm lg:text-xl">(Coming Soon)</span></a>
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl 2xl:text-5xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Contact.</a>
+            <div className="w-5/12 py-16 flex flex-col justify-around md:pl-8 lg:pl-12 xl:pl-20 " style={{"backgroundColor": "rgba(255, 255, 255, 0.1)"}}>
+                <div className="flex flex-col justify-between md:space-y-1 lg:space-y-2 xl:space-y-3">
+                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Work</a>
+                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Story.</a>
+                    <a className="fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 ">EmbedCast <span className="md:text-sm lg:text-xl">(Coming Soon)</span></a>
+                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Contact.</a>
                 </div>
                 <div className="mt-12">
                     <div className="max-w-max">

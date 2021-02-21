@@ -1,6 +1,12 @@
+import Container from '../components/layout/Container';
+import Navbar from '../components/common/Navbar';
+import Footer from '../components/common/Footer';
+
 const Story = () => {
     return(
-        <>Story</>
+        <>
+            <img src="/assets/Pattern.svg" alt="pattern" />
+        </>
     )
 }
 
