@@ -4,32 +4,32 @@ import LinkedInIcon from '../../assets/Icons/linkedin.svg';
 
 const Footer = () => {
     return (
-        <div className="w-full flex bg-black mt-20">
+        <div className="w-full flex bg-black mt-20 md:mt-44 2xl:mt-52">
             <div className="w-7/12">
-                <p className="text-white text-3xl fontface-bold text-center py-10 my-96">
+                <p className="text-white md:text-base lg:text-xl xl:text-2xl 2xl:text-4xl fontface-bold md:text-center py-10 md:my-48 lg:my-80 2xl:my-96">
                     We <span className="text-chocolate-600">Embed</span> customer experiences for your brand.
                 </p>
             </div>
-            <div className="w-5/12 py-16 flex flex-col justify-around pl-28" style={{"background-color": "rgba(255, 255, 255, 0.1)"}}>
-                <div className="flex flex-col justify-between space-y-4">
-                    <a href="#" className="fontface-bold text-5xl text-white opacity-30">Work</a>
-                    <a href="#" className="fontface-bold text-5xl text-white opacity-30">Story.</a>
-                    <a href="#" className="fontface-bold text-5xl text-white opacity-30">EmbedCast <span className="text-xl">(Coming Soon)</span></a>
-                    <a href="#" className="fontface-bold text-5xl text-white opacity-30">Contact.</a>
+            <div className="w-5/12 py-16 flex flex-col justify-around md:pl-8 lg:pl-12 xl:pl-20 2xl:pl-28" style={{"backgroundColor": "rgba(255, 255, 255, 0.1)"}}>
+                <div className="flex flex-col justify-between md:space-y-1 lg:space-y-2 xl:space-y-3 2xl:space-y-4">
+                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl 2xl:text-5xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Work</a>
+                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl 2xl:text-5xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Story.</a>
+                    <a className="fontface-bold md:text-2xl xl:text-4xl 2xl:text-5xl text-white opacity-30 ">EmbedCast <span className="md:text-sm lg:text-xl">(Coming Soon)</span></a>
+                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl 2xl:text-5xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Contact.</a>
                 </div>
                 <div className="mt-12">
                     <div className="max-w-max">
                         <div className="">
-                            <a href="mailto:hello@embeddesign.in" className="flex items-center fontface-medium text-lg text-white opacity-30">Mail us at hello@embeddesign.in 
-                            <ArrowIcon className="ml-8 h-5"/></a>
+                            <a href="mailto:hello@embeddesign.in" className="transition duration-500 ease-in-out flex items-center fontface-medium md:text-xs lg:text-sm xl:text-base 2xl:text-lg text-white text-opacity-30 hover:text-chocolate-600 hover:opacity-100 hover:text-xl">Mail us at hello@embeddesign.in 
+                            <ArrowIcon className="md:ml-4 xl:ml-6 2xl:ml-8 md:h-3 xl:h-4 2xl:h-5 "/></a>
                         </div>
                         <hr className="opacity-30 mt-2 border-t-2"/>
                     </div>
                     <div>
-                        <p className="text-chocolate-600 text-2xl fontface-medium mt-8 ">Follow us</p>
-                        <div className="flex space-x-6 mt-6 ml-4">
-                            <a href="#"><InstagramIcon className="w-16" /></a>
-                            <a href="#"><LinkedInIcon className="w-16" /></a>
+                        <p className="text-chocolate-600  lg:text-xl xl:text-2xl fontface-medium md:mt-6 lg:mt-8 ">Follow us</p>
+                        <div className="flex space-x-6 md:mt-6 xl:mt-8 ml-4">
+                            <a href="#"><InstagramIcon className="md:w-10 lg:w-12" /></a>
+                            <a href="#"><LinkedInIcon className="md:w-10 lg:w-12" /></a>
                         </div>
                     </div>
                 </div>

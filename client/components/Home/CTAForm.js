@@ -1,45 +1,134 @@
 import Container from '../layout/Container';
+import axios from 'axios';
+import { useState } from 'react';
+import _ from 'lodash';
+// import styles from './home.module.css';
 
 const CTAForm = () => {
+
+    const [name, setName] = useState("");
+    const [company, setCompany] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
+    const [services, setServices] = useState([]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(name != "" && email != "" && phone != "" && message != "" && services.length > 0){
+            axios.post("https://api.hsforms.com/submissions/v3/integration/submit/9453557/8fbe3309-1042-47a3-b071-23cb87492282", {
+                "fields": [
+                    {
+                        "name": "firstname",
+                        "value": name
+                    },
+                    {
+                        "name": "company",
+                        "value": company
+                    },
+                    {
+                        "name": "email",
+                        "value": email
+                    },
+                    {
+                        "name": "phone",
+                        "value": phone
+                    },
+                    {
+                        "name": "message",
+                        "value": message
+                    },
+                    {
+                        "name": "services",
+                        "value": services.join(';')
+                    },
+                ],
+                "context": {
+                    "pageUri": "localhost:3000",
+                    "pageName": "Welcome to Embed Design"
+                }
+            })    
+        } else {
+            alert("Form incomplete");
+        }
+    }
+
+    const handleChange = (e) => {
+        let serviceList = services;
+        e.target.checked ? serviceList.push(e.target.value) : _.remove(serviceList, (service) => service === e.target.value);
+        console.log(serviceList);
+        setServices(serviceList);
+    }
+
     return (
-        <Container>
-            <div className="mt-16">
-                <h1 className="text-center fontface-medium text-7xl" >Tell us about yourself.</h1>
-                <div className="w-10/12 bg-chocolate-600 mt-24 pt-16 pb-4 px-32 mx-auto">
-                    <h4 className="text-white text-3xl fontface-medium">Let's create something together</h4>
-                    <form id="cta-form" name="cta-form" className="w-full my-8">
+        <div className="w-full xl:w-10/12 mx-auto">
+            <div className="w-10/12 mx-auto xl:w-full my-8 xl:my-16">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-8xl 2xl:text-9xl fontface-light text-center">Want to discuss your business plans with us?</h1>
+            </div>
+            <div className="mt-16 xl:mt-32">
+                <h1 className="w-10/12 md:w-8/12 mx-auto xl:w-full text-center fontface-medium text-4xl md:text-5xl lg:text-6xl xl:text-7xl" >Tell us about yourself.</h1>
+                <div className="bg-chocolate-600 mt-10 w-full lg:w-10/12 lg:mx-auto xl:mt-24 pt-10 xl:pt-16 pb-4 px-10 xl:px-32 2xl:w-9/12">
+                    <h4 className="text-white text-xl xl:text-3xl 2xl:text-4xl fontface-medium">Let's create something together</h4>
+                    <form name="cta-form" id="cta-form" name="cta-form" className="w-full my-8" method="post" onSubmit={handleSubmit}>
                         <label htmlFor="name">
-                            <input type="text" name="name" id="name" placeholder="Name" className="embed__input fontface-medium text-base leading-none" />
+                            <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} id="name" placeholder="Name" className="embed__input_mob lg:embed__input_lg 2xl:embed__input_2xl fontface-medium text-base leading-none" required/>
                         </label>
                         <label htmlFor="company">
-                            <input type="text" name="company" id="company" placeholder="Company (Optional)" className="embed__input fontface-medium text-base leading-none" />
+                            <input type="text" name="company" value={company} onChange={e => setCompany(e.target.value)} id="company" placeholder="Company (Optional)" className="embed__input_mob lg:embed__input_lg 2xl:embed__input_2xl fontface-medium text-base leading-none" />
                         </label>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-rows-2 lg:grid-rows-none lg:grid-cols-2 lg:gap-4">
                             <label htmlFor="email">
-                                <input type="email" name="email" id="email" placeholder="Email Address" className="embed__input fontface-medium text-base leading-none" />
+                                <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} id="email" placeholder="Email Address" className="embed__input_mob lg:embed__input_lg 2xl:embed__input_2xl fontface-medium text-base leading-none" required/>
                             </label>
-                            <label htmlFor="contact">
-                                <input type="text" name="contact" id="contact" placeholder="Phone Number" className="embed__input fontface-medium text-base leading-none" />
+                            <label htmlFor="phone">
+                                <input type="text" name="phone" value={phone} onChange={e => setPhone(e.target.value)} id="phone" placeholder="Phone Number" className="embed__input_mob lg:embed__input_lg 2xl:embed__input_2xl fontface-medium text-base leading-none" required/>
                             </label>
                         </div>
                         <label htmlFor="message">
-                            <textarea name="message" id="message" placeholder="Message" className="embed__textarea fontface-medium text-base leading-none" />
+                            <textarea name="message" value={message} onChange={e => setMessage(e.target.value)} id="message" placeholder="Message" className="embed__textarea_mob lg:embed__textarea_lg 2xl:embed__textarea_2xl  fontface-medium text-base leading-none" required/>
                         </label>
-                        <label htmlFor="contact">
-                            <select name="services" id="services" placeholder="Services" className="embed__input fontface-medium text-base leading-none">
-                                <option value="" disabled selected>Select a service</option>
-                                <option value="ur">User Research</option>
-                                <option value="ux">User Experience</option>
-                                <option value="ui">User Interface</option>
-                            </select>
-                        </label>
+                        <div className="max-w-max my-4 2xl:my-12">
+                            <h5 className="text-white text-lg xl:text-xl 2xl:text-4xl fontface-bold">Services Required</h5>
+                        </div>                        
+                        <div className="flex 2xl:hidden flex-col lg:flex-row lg:space-x-20 lg:justify-center 2xl:justify-center ">
+                            <label htmlFor="ur" className="container fontface-medium text-white" >User Research
+                                <input type="checkbox" name="services" id="ur" onChange={handleChange} value="ur" />
+                                <span className="checkmark"></span>
+                            </label>
+                            <label htmlFor="ux" className="container fontface-medium text-white">User Experience
+                                <input type="checkbox" name="services" id="ux" onChange={handleChange} value="ux" />
+                                <span className="checkmark" ></span>
+                            </label>
+                            <label htmlFor="ui" className="container fontface-medium text-white">User Interface
+                                <input type="checkbox" name="services" id="ui" onChange={handleChange} value="ui" />
+                                <span className="checkmark"></span>
+                            </label>
+                        </div>
+                        <div className="2xl:flex hidden flex-col lg:flex-row lg:space-x-20 lg:justify-center 2xl:justify-center ">
+                            <label htmlFor="ur_1" className="container_2xl fontface-medium text-white" >User Research
+                                <input type="checkbox" name="services" id="ur_1" onChange={handleChange} value="ur" />
+                                <span className="checkmark_2xl"></span>
+                            </label>
+                            <label htmlFor="ux_1" className="container_2xl fontface-medium text-white">User Experience
+                                <input type="checkbox" name="services" id="ux_1" onChange={handleChange} value="ux" />
+                                <span className="checkmark_2xl" ></span>
+                            </label>
+                            <label htmlFor="ui_1" className="container_2xl fontface-medium text-white">User Interface
+                                <input type="checkbox" name="services" id="ui_1" onChange={handleChange} value="ui" />
+                                <span className="checkmark_2xl"></span>
+                            </label>
+                        </div>
                     </form>
                 </div>
+                <div className="w-10/12 mx-auto mt-5">
+                    <p className="fontface-medium text-base 2xl:text-xl text-center">Once we receive your requirements, we shall get back to you within a working day.</p>    
+                </div>
+                
                 <div className="my-16 flex justify-center">
-                    <button type="submit" form="cta-form" className="embed__cta_button fontface-medium mx-auto">Get Embedded</button>
+                    <button type="submit" form="cta-form" className="embed__cta_button 2xl:embed__cta_button_2xl fontface-medium mx-auto">Get Embedded</button>
                 </div>
             </div>
-        </Container>
+        </div>
     )
 }
 
