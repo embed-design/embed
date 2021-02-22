@@ -12,24 +12,12 @@ body {
 @responsive {
   .embed__input_lg {
     @apply bg-white;
-    @apply text-xl;
+    @apply text-base;
+    @apply tracking-wider;
     @apply text-black;
-    @apply placeholder-black;
+    @apply placeholder-gray-400;
     @apply border-none;
     @apply px-5 py-8;
-    @apply w-full;
-    @apply my-4;
-    @apply outline-none;
-    @apply focus:outline-none;
-  }
-
-  .embed__input_2xl {
-    @apply bg-white;
-    @apply text-3xl;
-    @apply text-black;
-    @apply placeholder-black;
-    @apply border-none;
-    @apply px-8 py-12;
     @apply w-full;
     @apply my-4;
     @apply outline-none;
@@ -38,25 +26,12 @@ body {
 
   .embed__textarea_lg {
     @apply bg-white;
-    @apply text-xl;
+    @apply text-base;
+    @apply tracking-wider;
     @apply text-black;
-    @apply placeholder-black;
+    @apply placeholder-gray-400;
     @apply border-none;
     @apply px-5 py-8;
-    @apply w-full;
-    @apply my-4;
-    @apply outline-none;
-    @apply focus:outline-none;
-    @apply resize-y;
-  }
-
-  .embed__textarea_2xl {
-    @apply bg-white;
-    @apply text-3xl;
-    @apply text-black;
-    @apply placeholder-black;
-    @apply border-none;
-    @apply px-8 py-12;
     @apply w-full;
     @apply my-4;
     @apply outline-none;
@@ -68,8 +43,9 @@ body {
 .embed__input_mob {
   @apply bg-transparent;
   @apply text-base;
+  @apply tracking-wider;
   @apply text-white;
-  @apply placeholder-white;
+  @apply placeholder-white placeholder-opacity-80;
   @apply border-b-2;
   @apply px-2 py-2;
   @apply w-full;
@@ -81,8 +57,9 @@ body {
 .embed__textarea_mob {
   @apply bg-transparent;
   @apply text-base;
+  @apply tracking-wider;
   @apply text-white;
-  @apply placeholder-white;
+  @apply placeholder-white placeholder-opacity-80;
   @apply border-b-2;
   @apply px-2 py-2;
   @apply w-full;
@@ -93,20 +70,23 @@ body {
 }
 
 @responsive {
-  .embed__cta_button_2xl {
+  .embed__cta_button_md {
     @apply bg-white;
     @apply border-chocolate-600;
     @apply border-4;
-    @apply px-24 py-10;
-    @apply text-4xl;
+    @apply px-16 py-6;
+    @apply text-2xl;
+    @apply transition duration-500 ease-in-out hover:bg-chocolate-600 hover:text-white;
   }
 }
+
 .embed__cta_button {
   @apply bg-white;
   @apply border-chocolate-600;
   @apply border-4;
-  @apply px-16 py-6;
-  @apply text-2xl;
+  @apply px-10 py-4;
+  @apply text-xl;
+  @apply transition duration-500 ease-in-out hover:bg-chocolate-600 hover:text-white;
 }
 .container {
   display: inline-block;

@@ -12,7 +12,9 @@
     "mongodb": "^3.5.9",
     "next": "latest",
     "react": "^16.13.1",
+    "react-cookie": "^4.0.3",
     "react-dom": "^16.13.1",
+    "react-ga": "^3.3.0",
     "react-hubspot": "^1.0.4"
   },
   "license": "MIT",

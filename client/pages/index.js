@@ -1,10 +1,25 @@
 import Head from "next/head";
 import Hero from "../components/Home/Hero";
 import Services from '../components/Home/Services'
-import Contact from '../components/Home/CTAForm'
+import CTA from '../components/Home/CTAForm'
 import Footer from '../components/common/Footer'
+import axios from 'axios';
+import { useEffect, useState } from "react";
 
-export default function EmbedApp() {
+function EmbedApp() {
+
+  const [ip, setIP] = useState("");
+
+  useEffect(() => {
+    axios.get("https://ipv4.icanhazip.com/").then(
+      response => {
+        setIP(response.data)
+      }
+    ).catch( err => {
+      console.log(err);
+    })
+  }, [])
+
   return (
     <>
         <Head>
@@ -14,9 +29,10 @@ export default function EmbedApp() {
         </Head>
         <Hero/>
         <Services/>
-        <Contact/>
+        <CTA ip={ip} />
         <Footer/>
     </>
   )
 }
 
+export default EmbedApp;
