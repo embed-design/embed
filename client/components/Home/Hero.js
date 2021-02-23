@@ -4,7 +4,7 @@ import Navbar from '../common/Navbar'
 const Hero = () => {
     return (
         <div className="bg-black py-8 overlay" >
-            <Navbar />
+            <Navbar darkMode={false}/>
             <Container>
                 <div id="content" className="pt-8 lg:pt-20 xl:pt-32 pb-8 lg:pb-20">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl text-white fontface-medium" >
@@ -15,8 +15,8 @@ const Hero = () => {
                     </h3>
                 </div>
                 <div className="pb-14 lg:pb-20 xl:pb-24">
-                    <img src="/assets/home_asset1.png" alt="Why Embed?" className="hidden md:block"/>
-                    <img src="/assets/home_asset_mobile.png" alt="Why Embed?" className=" block md:hidden"/>
+                    <img src="/assets/home_asset1.webp" alt="Why Embed?" className="hidden md:block"/>
+                    <img src="/assets/home_asset_mobile.webp" alt="Why Embed?" className=" block md:hidden"/>
                 </div>
             </Container>
         </div>

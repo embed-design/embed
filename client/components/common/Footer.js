@@ -5,14 +5,14 @@ import LinkedInIcon from '../../assets/Icons/linkedin.svg';
 const Footer = () => {
 
     const executeScroll = () => {
-        document.querySelector('#contact-us').scrollIntoView({ 
+        document.querySelector('/#contact-us').scrollIntoView({ 
             behavior: 'smooth' 
           });
     }
     return (
         <div className="w-full flex bg-black mt-20 md:mt-44">
             <div className="w-7/12">
-                <p className="text-white md:text-base lg:text-xl xl:text-2xl fontface-bold md:text-center py-10 xl:py-14 md:my-64 lg:my-72 xl:my-96">
+                <p className="text-white md:text-base lg:text-xl xl:text-2xl fontface-bold md:text-center py-10 md:my-64 lg:my-72 xl:my-80">
                     We <span className="text-chocolate-600">Embed</span> customer experiences for your brand.
                 </p>
             </div>
@@ -21,7 +21,7 @@ const Footer = () => {
                     <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Work</a>
                     <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Our Story.</a>
                     <a className="fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 ">EmbedCast <span className="md:text-sm lg:text-xl">(Coming Soon)</span></a>
-                    <a onClick={executeScroll} className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Contact.</a>
+                    <a onClick={executeScroll} className="cursor-pointer transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Contact.</a>
                 </div>
                 <div className="mt-12">
                     <div className="max-w-max">
@@ -34,14 +34,12 @@ const Footer = () => {
                     <div>
                         <p className="text-chocolate-600  lg:text-xl xl:text-2xl fontface-medium md:mt-6 lg:mt-8 ">Follow us</p>
                         <div className="flex space-x-6 md:mt-6 xl:mt-8 ml-4">
-                            <a href="#"><InstagramIcon className="md:w-10 lg:w-12" /></a>
+                            <a href="#"><InstagramIcon className="md:w-10 lg:w-12 hover:fill-current hover:text-chocolate-600" /></a>
                             <a href="#"><LinkedInIcon className="md:w-10 lg:w-12" /></a>
                         </div>
                     </div>
                 </div>
-                
             </div>
-
         </div>
     )
 }
