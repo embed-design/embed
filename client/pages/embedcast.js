@@ -1,7 +1,13 @@
-const EmbedCast = () => {
+import ComingSoon from '../components/EmbedCast/ComingSoon';
+import Footer from '../components/common/Footer';
+
+const Story = () => {
     return(
-        <>EmbedCast</>
+        <div className="md:overlay_full">
+            <ComingSoon/>
+            <Footer/>
+        </div>
     )
 }
 
-export default EmbedCast;
+export default Story;

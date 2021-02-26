@@ -1,12 +1,15 @@
-import Container from '../components/layout/Container';
-import Navbar from '../components/common/Navbar';
+import Hero from '../components/OurStory/Story_Hero';
 import Footer from '../components/common/Footer';
+import Content from '../components/OurStory/Story_Content';
 
+// TODO  Finish different responsive views for OurStory Page. 
 const Story = () => {
     return(
-        <>
-            <img src="/assets/Pattern.svg" alt="pattern" className=" absolute top-0 right-0"/>
-        </>
+        <div className="md:overlay_full">
+            <Hero />
+            <Content/>
+            <Footer/>
+        </div>
     )
 }
 

@@ -87,7 +87,7 @@ const CTAForm = ({ip}) => {
     }
 
     return (
-        <div id="contact-us" className="w-full xl:w-10/12 mx-auto">
+        <div id="contact-us" className="w-full xl:w-10/12 mx-auto mb-20 md:mb-44">
             <div className="w-10/12 mx-auto xl:w-full lg:my-16 xl:my-16">
                 <h1 className="text-xl leading-snug tracking-wide md:leading-snug md:tracking-wide lg:leading-snug xl:leading-snug md:text-4xl lg:text-5xl xl:text-7xl fontface-light text-center">Want to discuss your business plans with us?</h1>
             </div>
