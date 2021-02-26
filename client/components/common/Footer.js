@@ -1,22 +1,29 @@
 import ArrowIcon from '../../assets/Icons/ArrowIcon.svg';
 import InstagramIcon from '../../assets/Icons/instagram.svg';
 import LinkedInIcon from '../../assets/Icons/linkedin.svg';
+import { useRouter } from 'next/router';
 
 const Footer = () => {
-    // FIXME Fix Mobile View for the footer
+
+    const router = useRouter();
+
     const executeScroll = () => {
-        document.querySelector('/#contact-us').scrollIntoView({ 
-            behavior: 'smooth' 
-          });
+        if(router.pathname === "/"){
+            document.querySelector('#contact-us').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }else {
+            window.location.href = "/#contact-us"
+        }
     }
     return (
         <>
         <div className="block md:hidden bg-black">
             <div className="w-10/12 mx-auto pt-10 pb-4">
                 <div className="grid grid-cols-2 gap-4">
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Work</a>
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">EmbedCast</a>
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Our Story.</a>
+                    {/* <a href="#" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Work</a> */}
+                    <a href="/embedcast" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">EmbedCast</a>
+                    <a href="/story" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Our Story.</a>
                     <a onClick={executeScroll} className="cursor-pointer transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Contact.</a>
                 </div>
                 <p className="text-white fontface-bold text-xs pt-10 pb-4 ">
@@ -45,10 +52,10 @@ const Footer = () => {
                 </p>
             </div>
             <div className="w-5/12 py-16 flex flex-col justify-around md:pl-8 lg:pl-12 xl:pl-20 " style={{"backgroundColor": "rgba(255, 255, 255, 0.1)"}}>
-                <div className="flex flex-col justify-between md:space-y-1 lg:space-y-2 xl:space-y-3">
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Work</a>
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Our Story.</a>
-                    <a className="fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 ">EmbedCast</a>
+                <div className="flex flex-col justify-between md:space-y-3 lg:space-y-4 xl:space-y-5">
+                    {/* <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Work</a> */}
+                    <a href="/story" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Our Story.</a>
+                    <a href="/embedcast" className="fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 ">EmbedCast</a>
                     <a onClick={executeScroll} className="cursor-pointer transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Contact.</a>
                 </div>
                 <div className="mt-12">
@@ -62,8 +69,8 @@ const Footer = () => {
                     <div>
                         <p className="text-chocolate-600  lg:text-xl xl:text-2xl fontface-medium md:mt-6 lg:mt-8 ">Follow us</p>
                         <div className="flex space-x-6 md:mt-6 xl:mt-8 ml-4">
-                            <a href="#"><InstagramIcon className="transition duration-500 ease-in-out md:w-10 lg:w-12 fill-current text-white text-opacity-30 hover:text-chocolate-600" /></a>
-                            <a href="#"><LinkedInIcon className="transition duration-500 ease-in-out md:w-10 lg:w-12 fill-current text-white text-opacity-30 hover:text-chocolate-600" /></a>
+                            <a target="_blank" href="https://www.instagram.com/embeddesign_/"><InstagramIcon className="transition duration-500 ease-in-out md:w-10 lg:w-12 fill-current text-white text-opacity-30 hover:text-chocolate-600" /></a>
+                            <a target="_blank" href="https://www.linkedin.com/company/embed-design/"><LinkedInIcon className="transition duration-500 ease-in-out md:w-10 lg:w-12 fill-current text-white text-opacity-30 hover:text-chocolate-600" /></a>
                         </div>
                     </div>
                 </div>
