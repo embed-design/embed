@@ -14,6 +14,7 @@ body {
     @apply bg-white;
     @apply text-base;
     @apply tracking-wider;
+    @apply leading-none;
     @apply text-black;
     @apply placeholder-gray-400;
     @apply border-none;
@@ -28,6 +29,7 @@ body {
     @apply bg-white;
     @apply text-base;
     @apply tracking-wider;
+    @apply leading-none;
     @apply text-black;
     @apply placeholder-gray-400;
     @apply border-none;
@@ -43,6 +45,7 @@ body {
 .embed__input_mob {
   @apply bg-transparent;
   @apply text-base;
+  @apply leading-none;
   @apply tracking-wider;
   @apply text-white;
   @apply placeholder-white placeholder-opacity-80;
@@ -53,11 +56,11 @@ body {
   @apply outline-none;
   @apply focus:outline-none;
 }
-
 .embed__textarea_mob {
   @apply bg-transparent;
   @apply text-base;
   @apply tracking-wider;
+  @apply leading-none;
   @apply text-white;
   @apply placeholder-white placeholder-opacity-80;
   @apply border-b-2;
@@ -231,8 +234,8 @@ body {
 
 .overlay {
   background-image: url("/assets/Pattern.svg");
-  /* background-position: 0% 0%;
-  background-size: 100%; */
+  background-position: 0% 0%;
+  background-size: 100%;
 }
 
 @responsive {
@@ -392,7 +395,7 @@ body {
 
 @font-face {
   font-family: "Gordita Regular";
-  font-style: normal;
+  font-style: unset;
   font-weight: normal;
   src: local("Gordita Regular"),
     url("/fonts/gordita/Gordita Regular.woff") format("woff");

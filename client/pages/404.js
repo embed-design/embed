@@ -1,8 +1,14 @@
 import Footer from "../components/common/Footer";
 import Navbar from "../components/common/Navbar";
+import Head from "next/head";
 
 const NotFoundPage = () => {
     return (
+        <>
+        <Head>
+            <title>Embed Design | Page Not Found.</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        </Head>
         <div className="pt-8 mb-20 md:mb-44">
             <Navbar darkMode={false}/>
             <div className="flex flex-col justify-center items-center">
@@ -11,6 +17,7 @@ const NotFoundPage = () => {
             </div>
             <Footer/>
         </div>
+        </>
     )
 }
 

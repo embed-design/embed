@@ -25,7 +25,6 @@ function EmbedApp() {
         <Head>
           <title>Welcome to Embed Design</title>
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-          {/* <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9453557.js"></script> */}
         </Head>
         <Hero/>
         <Services/>

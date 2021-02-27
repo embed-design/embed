@@ -25,9 +25,9 @@ const Navbar = ( {darkMode = true} ) => {
     return (
         <Container>
             <div className="flex justify-between items-start py-2 md:py-6 ">
-                {darkMode ? 
+                <a href="/" >{darkMode ? 
                    <img src="/logo/Logo.svg" alt="EmbedDesign" className=" w-36 md:w-48 lg:w-60" /> : <img src="/logo/Logo_Dark.svg" alt="EmbedDesign" className=" w-36 md:w-48 lg:w-60" />
-                }
+                }</a>
                 
                 <div className="flex items-center">
                     <div id="nav-list" className={`${navAnim ? "flex" : "transition delay-75 hidden" } items-center space-x-8 mr-8`}>
