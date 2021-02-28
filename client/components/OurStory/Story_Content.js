@@ -2,7 +2,7 @@ import Container from '../layout/Container';
 
 const Story_Content = () => {
     return (
-        <div className="mb-20 md:mb-44">
+        <div className="mb-12 md:mb-16 lg:mb-32 xl:mb-40">
         <Container>
         <div className="mt-4 md:mt-8 lg:mt-20 w-11/12 md:w-10/12 xl:w-9/12 mx-auto">
             <div className={`story_container md:story_container_md lg:story_container_lg xl:story_container_xl pl-10 pr-2 md:pl-16 md:pr-0 lg:pl-24 lg:pr-8 xl:pl-32 xl:pr-20 py-4 relative`}>

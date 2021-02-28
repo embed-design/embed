@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import _ from 'lodash';
 import { useCookies } from 'react-cookie';
+import Loader from "../../assets/Icons/rolling.svg";
 
 const CTAForm = ({ip}) => {
 
@@ -17,9 +18,11 @@ const CTAForm = ({ip}) => {
         'ux': false,
         'ui': false
     });
-
+    const [isSubmitting, setSubmitting] = useState(false);
+    
     const handleSubmit = (e) => {
         e.preventDefault();
+        setSubmitting(true);
         const serviceList = mapServicesToHSFormat()
         if(name != "" && email != "" && phone != "" && message != "" && serviceList.split(";").length > 0){
             axios.post("https://api.hsforms.com/submissions/v3/integration/submit/9453557/8fbe3309-1042-47a3-b071-23cb87492282", {
@@ -55,6 +58,8 @@ const CTAForm = ({ip}) => {
                     "pageUri": window.location.href,
                     "pageName": document.title
                 }
+            }).then(response => {
+                
             })    
             setCompany("");
             setEmail("");
@@ -66,7 +71,7 @@ const CTAForm = ({ip}) => {
                 'ux': false,
                 'ui': false
             });
-            
+            setSubmitting(false);
         } else {
             alert("Form incomplete");
         }
@@ -151,7 +156,11 @@ const CTAForm = ({ip}) => {
                 </div>
                 
                 <div className="my-16 flex justify-center">
-                    <button type="submit" form="cta-form" className="embed__cta_button md:embed__cta_button_md fontface-medium mx-auto">Get Embedded</button>
+                    <button type="submit" form="cta-form" className="embed__cta_button md:embed__cta_button_md fontface-medium mx-auto flex">
+                    { isSubmitting ? (
+                        <Loader className="animate-spin w-4 mr-2" />
+                    ) : null} Get Embedded
+                    </button>
                 </div>
             </div>
         </div>

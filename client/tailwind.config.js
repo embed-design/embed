@@ -20,6 +20,7 @@ module.exports = {
         },
         black: colors.black,
         white: colors.white,
+        gray: colors.gray
       },
       keyframes: {
         nav_in: {
