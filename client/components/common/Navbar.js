@@ -1,5 +1,6 @@
 import Container from '../layout/Container';
 import BurgerIcon from '../../assets/Icons/BurgerIcon.svg'
+import CrossIcon from '../../assets/Icons/Cross.svg'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import useComponentVisible from '../../hooks/useComponentVisible';
@@ -57,8 +58,10 @@ const Navbar = ( {darkMode = true} ) => {
                         <a href="/embedcast" onAnimationEnd={(e) => e.target.classList.add("hover:text-chocolate-600")} className={`${navAnim ? "animate-nav_in" : "animate-nav_out"} transition duration-500 ease-in-out ${darkMode ? "text-white" : "text-black"} fontface-medium text-xl`}>EmbedCast</a>
                         <a onClick={executeScroll} onAnimationEnd={(e) => e.target.classList.add("hover:text-chocolate-600")} className={`${navAnim ? "animate-nav_in" : "animate-nav_out"} transition duration-500 ease-in-out ${darkMode ? "text-white" : "text-black"} fontface-medium text-xl  cursor-pointer`}>Contact.</a>
                     </div>
-                    <button type="button" onClick={openNav} className="bg-transparent border-none outline-none focus:outline-none">
-                        <BurgerIcon className={`w-6 xl:w-8 fill-current ${darkMode ? "text-white" : "text-black"}`}/>
+                    <button type="button" onClick={openNav} className={`bg-transparent border-none outline-none focus:outline-none`}>
+                        { !navAnim ?
+                            <BurgerIcon className={`w-6 xl:w-8 fill-current ${darkMode ? "text-white" : "text-black"}`}/>
+                            : <CrossIcon className={`w-6 xl:w-8 fill-current ${darkMode ? "text-white" : "text-black"}`}/> }
                     </button>
                 </div>
                 
