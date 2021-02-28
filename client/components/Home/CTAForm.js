@@ -19,6 +19,7 @@ const CTAForm = ({ip}) => {
         'ui': false
     });
     const [isSubmitting, setSubmitting] = useState(false);
+    const [status, setStatus] = useState("");
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -59,7 +60,10 @@ const CTAForm = ({ip}) => {
                     "pageName": document.title
                 }
             }).then(response => {
-                
+                setStatus("Thank you for submitting the form.")
+                setTimeout(() => {
+                    setStatus("")
+                }, 3000);
             })    
             setCompany("");
             setEmail("");
@@ -154,7 +158,9 @@ const CTAForm = ({ip}) => {
                 <div className="w-10/12 md:w-11/12 lg:w-10/12 xl:w-11/12 mx-auto mt-5 md:mt-2">
                     <p className="fontface-medium text-gray-400 text-sm text-center md:text-left">Once we receive your requirements, we shall get back to you within a working day.</p>    
                 </div>
-                
+                <div className="w-10/12 mx-auto my-5">
+                    <p className="fontface-regular text-chocolate-600 text-xs text-center">{status}</p> 
+                </div>
                 <div className="my-16 flex justify-center">
                     <button type="submit" form="cta-form" className="embed__cta_button md:embed__cta_button_md fontface-medium mx-auto flex">
                     { isSubmitting ? (
