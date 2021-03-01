@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="block md:hidden bg-black">
             <div className="w-10/12 mx-auto pt-10 pb-4">
                 <div className="grid grid-cols-2 gap-4">
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Work</a>
+                    <a href="/work" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Work</a>
                     <a href="/embedcast" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">EmbedCast</a>
                     <a href="/story" className="transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Our Story.</a>
                     <a onClick={executeScroll} className="cursor-pointer transition duration-500 ease-in-out fontface-bold text-white hover:text-chocolate-600 hover:opacity-100">Contact.</a>
@@ -39,8 +39,8 @@ const Footer = () => {
                 <div className="flex items-baseline mt-8 justify-end pr-6">
                     <p className="text-chocolate-600 text-sm fontface-medium ">Follow us</p>
                     <div className="flex space-x-4 ml-4">
-                        <a href="#"><InstagramIcon className="transition duration-500 ease-in-out w-8 fill-current text-white text-opacity-30 hover:text-chocolate-600" /></a>
-                        <a href="#"><LinkedInIcon className="transition duration-500 ease-in-out w-8 fill-current text-white text-opacity-30 hover:text-chocolate-600" /></a>
+                        <a target="_blank" href="https://www.instagram.com/embeddesign_/"><InstagramIcon className="transition duration-500 ease-in-out w-8 fill-current text-white text-opacity-30 hover:text-chocolate-600" /></a>
+                        <a target="_blank" href="https://www.linkedin.com/company/embed-design/"><LinkedInIcon className="transition duration-500 ease-in-out w-8 fill-current text-white text-opacity-30 hover:text-chocolate-600" /></a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
             <div className="w-5/12 py-16 flex flex-col justify-around md:pl-8 lg:pl-12 xl:pl-20 " style={{"backgroundColor": "rgba(255, 255, 255, 0.1)"}}>
                 <div className="flex flex-col justify-between md:space-y-1 lg:space-y-2 xl:space-y-3">
-                    <a href="#" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Work</a>
+                    <a href="/work" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Work</a>
                     <a href="/story" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Our Story.</a>
                     <a href="/embedcast" className="transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">EmbedCast</a>
                     <a onClick={executeScroll} className="cursor-pointer transition duration-500 ease-in-out fontface-bold md:text-2xl xl:text-4xl text-white opacity-30 hover:text-chocolate-600 hover:opacity-100">Contact.</a>
