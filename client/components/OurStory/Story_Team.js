@@ -21,7 +21,7 @@ const Story_Team = () => {
                         <div className="flex justify-between mt-2">
                             <div>
                                 <p className="fontface-regular text-sm xl:text-xl text-black">Nikita Sharma</p>
-                                {/* <p className="fontface-regular text-sm xl:text-xl text-gray-500">Co-founder</p> */}
+                                {/* <p className="fontface-regular text-sm xl:text-xl text-gray-500">Mother of Dragons</p> */}
                             </div>
                             <a target="_blank" href="https://www.linkedin.com/in/nikita-sharma-b6835b169/"><LinkedInIcon className="w-4 h-4 xl:w-6 xl:h-6" /></a>
                         </div>
@@ -41,7 +41,7 @@ const Story_Team = () => {
                         <div className="flex justify-between mt-2">
                             <div>
                                 <p className="fontface-regular text-sm xl:text-xl text-black">Madhura Pawar</p>
-                                {/* <p className="fontface-regular text-sm xl:text-xl text-gray-500">Co-founder</p> */}
+                                {/* <p className="fontface-regular text-sm xl:text-xl text-gray-500">Oink Oink</p> */}
                             </div>
                             <a target="_blank" href="https://www.linkedin.com/in/madhura-pawar/"><LinkedInIcon className="w-4 h-4 xl:w-6 xl:h-6" /></a>
                         </div>

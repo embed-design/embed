@@ -3,7 +3,7 @@ import Navbar from '../common/Navbar'
 
 const Hero = () => {
     return (
-        <div className="bg-black py-8 overlay" >
+        <div className="bg-black py-8" >
             <Navbar darkMode={true}/>
             <Container>
                 <div id="content" className="pt-8 lg:pt-20 xl:pt-32 pb-8 lg:pb-20">
