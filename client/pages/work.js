@@ -1,12 +1,12 @@
-import ComingSoon from '../components/EmbedCast/ComingSoon';
+import ComingSoon from '../components/Work/ComingSoon';
 import Footer from '../components/common/Footer';
 import Head from "next/head";
 
-const EmbedCast = () => {
+const Work = () => {
     return(
         <>
         <Head>
-            <title>Embed Design | EmbedCast</title>
+            <title>Embed Design | Work</title>
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         </Head>
         <div className="md:overlay_full">
@@ -17,4 +17,4 @@ const EmbedCast = () => {
     )
 }
 
-export default EmbedCast;
+export default Work;
