@@ -172,7 +172,7 @@ const CTAForm = ({ip}) => {
                         size="invisible"
                         sitekey = "6Lc18nYaAAAAAJROdpCmc5gy4WpAuG9VkJL87Xu1"
                     />
-                    <button type="submit" form="cta-form" className="embed__cta_button md:embed__cta_button_md fontface-medium mx-auto flex">
+                    <button type="submit" form="cta-form" className={`${isSubmitting ? "transition duration-500 ease-in-out bg-chocolate-600 text-white" : ""} embed__cta_button md:embed__cta_button_md fontface-medium mx-auto flex`}>
                     { isSubmitting ? (
                         <Loader className="animate-spin w-4 mr-2" />
                     ) : null} Get Embedded
