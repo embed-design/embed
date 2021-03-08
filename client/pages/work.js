@@ -6,8 +6,9 @@ const Work = () => {
     return(
         <>
         <Head>
-            <title>Embed Design | Work</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+          <title>Embed Design | Work</title>
+          <meta name="description" content="Coming Soon with our UX Stories! "/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         </Head>
         <div className="md:overlay_full">
             <ComingSoon/>

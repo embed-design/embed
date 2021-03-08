@@ -8,7 +8,8 @@ const Story = () => {
     return(
         <>
             <Head>
-                <title>Embed Design | Our Story</title>
+                <title>Embed Design | Story</title>
+                <meta name="description" content="How Embed Design came into being and the people behind it."/>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
             </Head>
             <div className="md:overlay_full">

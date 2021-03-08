@@ -1,7 +1,9 @@
 import Container from '../layout/Container';
 import LinkedInIcon from '../../assets/Icons/1200px-LinkedIn_logo_In-Black 1.svg'
+import { useEffect } from 'react';
 
 const Story_Team = () => {
+
     return(
         <div className="mb-20 md:mb-44">
             <Container>

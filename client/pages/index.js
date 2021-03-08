@@ -23,7 +23,8 @@ function EmbedApp() {
   return (
     <>
         <Head>
-          <title>Welcome to Embed Design</title>
+          <title>Embed Design</title>
+          <meta name="description" content="Embed Design is a research-based design organization that caters to the user needs, keeping them aligned to the business goals for an effective outcome through its solutions."/>
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         </Head>
         <Hero/>

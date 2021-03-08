@@ -8,6 +8,10 @@ export default class EmbedClass extends App {
         initGA();
         logPageView();
         Router.events.on("routeChangeComplete", logPageView);
+        
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
     }
 
     render() {
