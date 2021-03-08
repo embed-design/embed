@@ -134,7 +134,7 @@ const CTAForm = ({ip}) => {
                                 <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} id="email" placeholder="Email Address" className="embed__input_mob lg:embed__input_lg fontface-regular align-bottom" required/>
                             </label>
                             <label htmlFor="phone">
-                                <input type="text" name="phone" value={phone} onChange={e => setPhone(e.target.value)} id="phone" placeholder="Phone Number" className="embed__input_mob lg:embed__input_lg fontface-regular leading-none align-bottom" required/>
+                                <input type="tel" name="phone" value={phone} pattern="[0-9]{10}" onChange={e => setPhone(e.target.value.substring(0,10))} id="phone" placeholder="Phone Number" className="embed__input_mob lg:embed__input_lg fontface-regular leading-none align-bottom" required/>
                             </label>
                         </div>
                         <label htmlFor="message">
