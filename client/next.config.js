@@ -11,7 +11,7 @@ module.exports = {
   };
 
 sitemap({
-  baseUrl: 'embeddesign.in',
+  baseUrl: 'https://embeddesign.in',
   pagesDirectory: __dirname + "/pages",
   targetDirectory: 'public/'
 })
