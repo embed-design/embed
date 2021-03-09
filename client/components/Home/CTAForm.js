@@ -4,9 +4,10 @@ import { useState } from 'react';
 import _ from 'lodash';
 import { useCookies } from 'react-cookie';
 import Loader from "../../assets/Icons/rolling.svg";
+import ReCAPTCHA from "react-google-recaptcha"; 
 
 const CTAForm = ({ip}) => {
-
+    const recaptchaRef = React.createRef();
     const [cookies] = useCookies(["hubspotutk"])
     const [name, setName] = useState("");
     const [company, setCompany] = useState("");
@@ -18,66 +19,87 @@ const CTAForm = ({ip}) => {
         'ux': false,
         'ui': false
     });
+    const [captchaParams, setCaptchParams] = useState({
+        secret: process.env.NEXT_PUBLIC_CAPTCHA_SECRET,
+        response: "",
+        remoteip: ip
+    })
     const [isSubmitting, setSubmitting] = useState(false);
     const [status, setStatus] = useState("");
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitting(true);
-        const serviceList = mapServicesToHSFormat()
+        const serviceList = mapServicesToHSFormat();
         if(name != "" && email != "" && phone != "" && message != "" && serviceList.split(";").length > 0){
-            axios.post("https://api.hsforms.com/submissions/v3/integration/submit/9453557/8fbe3309-1042-47a3-b071-23cb87492282", {
-                "fields": [
-                    {
-                        "name": "firstname",
-                        "value": name
-                    },
-                    {
-                        "name": "company",
-                        "value": company
-                    },
-                    {
-                        "name": "email",
-                        "value": email
-                    },
-                    {
-                        "name": "phone",
-                        "value": phone
-                    },
-                    {
-                        "name": "message",
-                        "value": message
-                    },
-                    {
-                        "name": "services",
-                        "value": serviceList
-                    },
-                ],
-                "context": {
-                    "hutk": cookies.hubspotutk,
-                    "ipAddress": ip,
-                    "pageUri": window.location.href,
-                    "pageName": document.title
-                }
-            }).then(response => {
-                setStatus("Thank you for submitting the form.")
-                setTimeout(() => {
-                    setStatus("")
-                }, 3000);
-            })    
-            setCompany("");
-            setEmail("");
-            setMessage("");
-            setName("");
-            setPhone("");
-            setServices({
-                'ur': false,
-                'ux': false,
-                'ui': false
-            });
-            setSubmitting(false);
+                recaptchaRef.current.reset();
+                axios.post("/api/captcha", captchaParams).then(response => {
+                    if(response.data.success){
+                        axios.post(`/api/contact`, {
+                            "fields": [
+                                {
+                                    "name": "firstname",
+                                    "value": name
+                                },
+                                {
+                                    "name": "company",
+                                    "value": company
+                                },
+                                {
+                                    "name": "email",
+                                    "value": email
+                                },
+                                {
+                                    "name": "phone",
+                                    "value": phone
+                                },
+                                {
+                                    "name": "message",
+                                    "value": message
+                                },
+                                {
+                                    "name": "services",
+                                    "value": serviceList
+                                },
+                            ],
+                            "context": {
+                                "hutk": cookies.hubspotutk,
+                                "ipAddress": ip,
+                                "pageUri": window.location.href,
+                                "pageName": document.title
+                            }
+                        }).then(_ => {
+                            setStatus("Thank you for submitting the form.")
+                            setTimeout(() => {
+                                setStatus("")
+                            }, 3000);
+                        })    
+                        setCompany("");
+                        setEmail("");
+                        setMessage("");
+                        setName("");
+                        setPhone("");
+                        setServices({
+                            'ur': false,
+                            'ux': false,
+                            'ui': false
+                        });
+                        setSubmitting(false);
+                        
+                       
+                    } else {
+                        setStatus("CAPTCHA Failed. Please Try Again.")
+                        setTimeout(() => {
+                            setStatus("")
+                        }, 3000);
+                        // recaptchaRef.reset();
+                    }
+                })
         } else {
-            alert("Form incomplete");
+            setStatus("Please complete the form.")
+            setTimeout(() => {
+                setStatus("")
+            }, 3000);
         }
     }
 
@@ -91,6 +113,13 @@ const CTAForm = ({ip}) => {
             return services[item] ? item : null; 
         }).join(';');
         return serviceList;
+    }
+
+    const onCaptchaChange = (value) => {
+        setCaptchParams({
+            ...captchaParams,
+            response: value
+        })
     }
 
     return (
@@ -116,7 +145,7 @@ const CTAForm = ({ip}) => {
                                 <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} id="email" placeholder="Email Address" className="embed__input_mob lg:embed__input_lg fontface-regular align-bottom" required/>
                             </label>
                             <label htmlFor="phone">
-                                <input type="text" name="phone" value={phone} onChange={e => setPhone(e.target.value)} id="phone" placeholder="Phone Number" className="embed__input_mob lg:embed__input_lg fontface-regular leading-none align-bottom" required/>
+                                <input type="tel" name="phone" value={phone} pattern="[0-9]{10}" onChange={e => setPhone(e.target.value.substring(0,10))} id="phone" placeholder="Phone Number" className="embed__input_mob lg:embed__input_lg fontface-regular leading-none align-bottom" required/>
                             </label>
                         </div>
                         <label htmlFor="message">
@@ -139,30 +168,23 @@ const CTAForm = ({ip}) => {
                                 <span className="checkmark"></span>
                             </label>
                         </div>
-                        {/* <div className="2xl:flex hidden flex-col lg:flex-row lg:space-x-20 lg:justify-center 2xl:justify-center ">
-                            <label htmlFor="ur_1" className="container_2xl fontface-medium text-white" >User Research
-                                <input type="checkbox" name="services" id="ur_1" onChange={handleChange} value="ur" />
-                                <span className="checkmark_2xl"></span>
-                            </label>
-                            <label htmlFor="ux_1" className="container_2xl fontface-medium text-white">User Experience
-                                <input type="checkbox" name="services" id="ux_1" onChange={handleChange} value="ux" />
-                                <span className="checkmark_2xl" ></span>
-                            </label>
-                            <label htmlFor="ui_1" className="container_2xl fontface-medium text-white">User Interface
-                                <input type="checkbox" name="services" id="ui_1" onChange={handleChange} value="ui" />
-                                <span className="checkmark_2xl"></span>
-                            </label>
-                        </div> */}
                     </form>
                 </div>
                 <div className="w-10/12 md:w-11/12 lg:w-10/12 xl:w-11/12 mx-auto mt-5 md:mt-2">
                     <p className="fontface-medium text-gray-400 text-sm text-center md:text-left">Once we receive your requirements, we shall get back to you within a working day.</p>    
                 </div>
                 <div className="w-10/12 mx-auto my-5">
-                    <p className="fontface-regular text-chocolate-600 text-xs text-center">{status}</p> 
+                    <p className="fontface-regular text-chocolate-600 text-lg text-center">{status}</p> 
                 </div>
-                <div className="my-16 flex justify-center">
-                    <button type="submit" form="cta-form" className="embed__cta_button md:embed__cta_button_md fontface-medium mx-auto flex">
+                <div className="my-16 flex flex-col justify-center items-center space-y-4">
+                    <ReCAPTCHA
+                        id="recaptcha"
+                        ref={recaptchaRef}
+                        theme="light"
+                        onChange={onCaptchaChange}
+                        sitekey = "6Lc18nYaAAAAAJROdpCmc5gy4WpAuG9VkJL87Xu1"
+                    />
+                    <button type="submit" form="cta-form" className={`${isSubmitting ? "transition duration-500 ease-in-out bg-chocolate-600 text-white" : ""} embed__cta_button md:embed__cta_button_md fontface-medium mx-auto flex`}>
                     { isSubmitting ? (
                         <Loader className="animate-spin w-4 mr-2" />
                     ) : null} Get Embedded
