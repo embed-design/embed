@@ -19,19 +19,21 @@ const CTAForm = ({ip}) => {
         'ux': false,
         'ui': false
     });
+    const [captchaParams, setCaptchParams] = useState({
+        secret: process.env.NEXT_PUBLIC_CAPTCHA_SECRET,
+        response: "",
+        remoteip: ip
+    })
     const [isSubmitting, setSubmitting] = useState(false);
     const [status, setStatus] = useState("");
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitting(true);
-        const serviceList = mapServicesToHSFormat()
+        const serviceList = mapServicesToHSFormat();
         if(name != "" && email != "" && phone != "" && message != "" && serviceList.split(";").length > 0){
-            recaptchaRef.current.executeAsync().then(response => {
-                axios.post("/api/captcha", {
-                    secret: process.env.NEXT_PUBLIC_CAPTCHA_SECRET,
-                    response: response,
-                    remoteip: ip
-                }).then(response => {
+                recaptchaRef.current.reset();
+                axios.post("/api/captcha", captchaParams).then(response => {
                     if(response.data.success){
                         axios.post(`/api/contact`, {
                             "fields": [
@@ -83,14 +85,16 @@ const CTAForm = ({ip}) => {
                             'ui': false
                         });
                         setSubmitting(false);
-                    }else {
+                        
+                       
+                    } else {
                         setStatus("CAPTCHA Failed. Please Try Again.")
                         setTimeout(() => {
                             setStatus("")
                         }, 3000);
+                        // recaptchaRef.reset();
                     }
                 })
-            }) 
         } else {
             setStatus("Please complete the form.")
             setTimeout(() => {
@@ -109,6 +113,13 @@ const CTAForm = ({ip}) => {
             return services[item] ? item : null; 
         }).join(';');
         return serviceList;
+    }
+
+    const onCaptchaChange = (value) => {
+        setCaptchParams({
+            ...captchaParams,
+            response: value
+        })
     }
 
     return (
@@ -163,13 +174,14 @@ const CTAForm = ({ip}) => {
                     <p className="fontface-medium text-gray-400 text-sm text-center md:text-left">Once we receive your requirements, we shall get back to you within a working day.</p>    
                 </div>
                 <div className="w-10/12 mx-auto my-5">
-                    <p className="fontface-regular text-chocolate-600 text-xs text-center">{status}</p> 
+                    <p className="fontface-regular text-chocolate-600 text-lg text-center">{status}</p> 
                 </div>
                 <div className="my-16 flex flex-col justify-center items-center space-y-4">
                     <ReCAPTCHA
+                        id="recaptcha"
                         ref={recaptchaRef}
-                        theme="dark"
-                        size="invisible"
+                        theme="light"
+                        onChange={onCaptchaChange}
                         sitekey = "6Lc18nYaAAAAAJROdpCmc5gy4WpAuG9VkJL87Xu1"
                     />
                     <button type="submit" form="cta-form" className={`${isSubmitting ? "transition duration-500 ease-in-out bg-chocolate-600 text-white" : ""} embed__cta_button md:embed__cta_button_md fontface-medium mx-auto flex`}>
