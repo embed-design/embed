@@ -9,6 +9,7 @@ const NotFoundPage = () => {
           <title>Embed Design | Page Not Found.</title>
           <meta name="description" content="Can't find the page you requested."/>
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+          <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className="pt-8 mb-20 md:mb-44">
             <Navbar darkMode={false}/>

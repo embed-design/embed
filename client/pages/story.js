@@ -11,6 +11,7 @@ const Story = () => {
                 <title>Embed Design | Story</title>
                 <meta name="description" content="How Embed Design came into being and the people behind it."/>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="md:overlay_full">
                 <Hero />
