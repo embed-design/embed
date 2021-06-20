@@ -1,4 +1,4 @@
-const Container = ({children}) => {
+const Container = ({ children }) => {
     return (
         <div className="w-screen">
             <div className="mx-auto w-10/12 py-2" >
