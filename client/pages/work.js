@@ -1,6 +1,7 @@
 import ComingSoon from '../components/Work/ComingSoon';
 import Footer from '../components/common/Footer';
 import Head from "next/head";
+import Industry from '../components/Work/Industry'
 
 const Work = () => {
     return(

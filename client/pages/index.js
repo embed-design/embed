@@ -5,6 +5,8 @@ import CTA from '../components/Home/CTAForm'
 import Footer from '../components/common/Footer'
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import Client from '../components/Work/Clients'
+import Industry from '../components/Work/Industry'
 
 function EmbedApp() {
 
@@ -30,8 +32,11 @@ function EmbedApp() {
         </Head>
         <Hero/>
         <Services/>
+        <Client/>
+        <Industry/>
         <CTA ip={ip} />
         <Footer/>
+        
     </>
   )
 }
